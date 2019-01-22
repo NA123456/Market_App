@@ -1,0 +1,36 @@
+<h1>orders</h1>
+
+<p>This component demonstrates fetching data from the server.</p>
+
+<p *ngIf="!boker"><em>Loading...</em></p>
+
+<table class='table' *ngIf="boker">
+  <thead>
+    <tr>
+      <th>Person Name</th>
+      <th>Stock Id</th>
+      <th>Price</th>
+      <th>Quantity</th>
+      <th>Commission</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let order of boker.orders">
+      <td>{{ boker.name }}</td>
+      <td>{{ order.stockId }}</td>
+      <td>{{ order.price }}</td>
+      <td>{{ order.quantity }}</td>
+      <td>{{ order.commission }}</td>
+    </tr>
+    <ng-container *ngFor="let person of boker.persons">
+      <tr *ngFor="let order of person.orders">
+
+        <td>{{ person.name }}</td>
+        <td>{{ order.stockId }}</td>
+        <td>{{ order.price }}</td>
+        <td>{{ order.quantity }}</td>
+        <td>{{ order.commission }}</td>
+      </tr>
+        </ng-container>
+</tbody> 
+</table>
